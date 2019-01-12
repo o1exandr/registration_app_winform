@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace registration_app_winform
 {
-    public partial class Form1 : Form
+    public partial class fmUserAddForm : Form
     {
-        public Form1()
+        public fmUserAddForm()
         {
             InitializeComponent();
+        }
+
+        private void mcBirthDate_DateChanged(object sender, DateRangeEventArgs e)
+        {
+            var date = mcBirthDate.SelectionStart;
+            txtBirthDate.Text = date.ToString("dd.MM.yyyy");
         }
     }
 }
