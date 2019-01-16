@@ -38,13 +38,14 @@ namespace registration_app_winform
                 Email = txtEmail.Text,
                 Password = txtPassword.Text,
                 Phone = txtPhone.Text,
-                Sex = rbMale.Checked ? true : false
+                Sex = rbMale.Checked ? true : false,
+                Role = cbRole.Text
             };
             try
             {
                 using (TransactionScope scope = new TransactionScope())
                 {
-                    string strCon = @"Data Source=DELL7020\sqlexpress;Initial Catalog=GridUserForm;Integrated Security=True";
+                    string strCon = @"Data Source=dell7020\sqlexpress;Initial Catalog=GridUserForm;Integrated Security=True";
                     ICryptoService cryptoService = new PBKDF2();
                     //New User
                     //string password = "password";
@@ -60,7 +61,7 @@ namespace registration_app_winform
                         con.Open();
                         SqlCommand command = new SqlCommand();
                         command.Connection = con;
-                        var query = $"INSERT INTO [dbo].[tblUsers] ([Email],[Password],[PasswordSalt],[IsActive]) VALUES('{user.Email}','{hashedPassword}','{salt}', 1)";
+                        var query = $"INSERT INTO [dbo].[tblUsers] ([Email],[Password],[PasswordSalt],[Role],[IsActive]) VALUES('{user.Email}','{hashedPassword}','{salt}', '{user.Role}', 1)";
                         command.CommandText = query;
                         int userId = 0;
                         var count = command.ExecuteNonQuery();
@@ -88,6 +89,7 @@ namespace registration_app_winform
                         
                     }
                     scope.Complete();
+                    MessageBox.Show($"Користувача {user.Lastname} {user.Name} з роллю {user.Role} додано");
                 }
             }
             catch (Exception ex)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using registration_app_winform.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +22,26 @@ namespace registration_app_winform
         {
             fmUserAddForm UserAddForm = new fmUserAddForm();
             UserAddForm.ShowDialog();
+        }
+
+        private void fmMain_Load(object sender, EventArgs e)
+        {
+            var user = new UserItemModel
+            {
+                Id = 1,
+                FullName = "Сидор Славік Сидорович",
+                Email = "ss@ss.ss",
+                Role = "Admin",
+                Age = 12,
+                Phone = "+3809734128745",
+                Sex = true
+            };
+            string sex = user.Sex == true ? "чоловіча" : "жіноча";
+            object[] row =
+            {
+                user.Id, user.FullName, user.Email, user.Phone, user.Role, user.Age, sex
+            };
+            dvgUsers.Rows.Add(row);
         }
     }
 }

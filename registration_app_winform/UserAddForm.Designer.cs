@@ -50,10 +50,14 @@
             this.lbEmail = new System.Windows.Forms.Label();
             this.btCancel = new System.Windows.Forms.Button();
             this.btAddUser = new System.Windows.Forms.Button();
+            this.gbRole = new System.Windows.Forms.GroupBox();
+            this.lbRole = new System.Windows.Forms.Label();
+            this.cbRole = new System.Windows.Forms.ComboBox();
             this.gpSex.SuspendLayout();
             this.gpDate.SuspendLayout();
             this.gbPIB.SuspendLayout();
             this.gbData.SuspendLayout();
+            this.gbRole.SuspendLayout();
             this.SuspendLayout();
             // 
             // mcBirthDate
@@ -132,7 +136,7 @@
             this.gbPIB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gbPIB.Location = new System.Drawing.Point(16, 14);
             this.gbPIB.Name = "gbPIB";
-            this.gbPIB.Size = new System.Drawing.Size(339, 140);
+            this.gbPIB.Size = new System.Drawing.Size(339, 118);
             this.gbPIB.TabIndex = 0;
             this.gbPIB.TabStop = false;
             this.gbPIB.Text = " ПІБ ";
@@ -140,7 +144,7 @@
             // txtSecondName
             // 
             this.txtSecondName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtSecondName.Location = new System.Drawing.Point(116, 100);
+            this.txtSecondName.Location = new System.Drawing.Point(116, 84);
             this.txtSecondName.Name = "txtSecondName";
             this.txtSecondName.Size = new System.Drawing.Size(214, 26);
             this.txtSecondName.TabIndex = 5;
@@ -148,7 +152,7 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtName.Location = new System.Drawing.Point(116, 63);
+            this.txtName.Location = new System.Drawing.Point(116, 53);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(214, 26);
             this.txtName.TabIndex = 3;
@@ -156,7 +160,7 @@
             // txtLastName
             // 
             this.txtLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtLastName.Location = new System.Drawing.Point(116, 26);
+            this.txtLastName.Location = new System.Drawing.Point(116, 22);
             this.txtLastName.Name = "txtLastName";
             this.txtLastName.Size = new System.Drawing.Size(214, 26);
             this.txtLastName.TabIndex = 1;
@@ -165,7 +169,7 @@
             // 
             this.lbSecondName.AutoSize = true;
             this.lbSecondName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbSecondName.Location = new System.Drawing.Point(3, 103);
+            this.lbSecondName.Location = new System.Drawing.Point(3, 87);
             this.lbSecondName.Name = "lbSecondName";
             this.lbSecondName.Size = new System.Drawing.Size(110, 20);
             this.lbSecondName.TabIndex = 4;
@@ -175,7 +179,7 @@
             // 
             this.lbName.AutoSize = true;
             this.lbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbName.Location = new System.Drawing.Point(3, 65);
+            this.lbName.Location = new System.Drawing.Point(3, 55);
             this.lbName.Name = "lbName";
             this.lbName.Size = new System.Drawing.Size(41, 20);
             this.lbName.TabIndex = 2;
@@ -185,7 +189,7 @@
             // 
             this.lbLastName.AutoSize = true;
             this.lbLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbLastName.Location = new System.Drawing.Point(3, 29);
+            this.lbLastName.Location = new System.Drawing.Point(3, 25);
             this.lbLastName.Name = "lbLastName";
             this.lbLastName.Size = new System.Drawing.Size(89, 20);
             this.lbLastName.TabIndex = 0;
@@ -200,9 +204,9 @@
             this.gbData.Controls.Add(this.lbPhone);
             this.gbData.Controls.Add(this.lbEmail);
             this.gbData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gbData.Location = new System.Drawing.Point(16, 171);
+            this.gbData.Location = new System.Drawing.Point(16, 136);
             this.gbData.Name = "gbData";
-            this.gbData.Size = new System.Drawing.Size(339, 140);
+            this.gbData.Size = new System.Drawing.Size(339, 122);
             this.gbData.TabIndex = 1;
             this.gbData.TabStop = false;
             this.gbData.Text = " Контактні дані ";
@@ -210,7 +214,7 @@
             // txtPassword
             // 
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtPassword.Location = new System.Drawing.Point(117, 106);
+            this.txtPassword.Location = new System.Drawing.Point(117, 86);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(214, 26);
@@ -219,7 +223,7 @@
             // txtPhone
             // 
             this.txtPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtPhone.Location = new System.Drawing.Point(117, 35);
+            this.txtPhone.Location = new System.Drawing.Point(117, 25);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(214, 26);
             this.txtPhone.TabIndex = 1;
@@ -227,7 +231,7 @@
             // txtEmail
             // 
             this.txtEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtEmail.Location = new System.Drawing.Point(117, 70);
+            this.txtEmail.Location = new System.Drawing.Point(117, 56);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(214, 26);
             this.txtEmail.TabIndex = 3;
@@ -236,7 +240,7 @@
             // 
             this.lbPass.AutoSize = true;
             this.lbPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbPass.Location = new System.Drawing.Point(6, 109);
+            this.lbPass.Location = new System.Drawing.Point(6, 89);
             this.lbPass.Name = "lbPass";
             this.lbPass.Size = new System.Drawing.Size(73, 20);
             this.lbPass.TabIndex = 4;
@@ -246,7 +250,7 @@
             // 
             this.lbPhone.AutoSize = true;
             this.lbPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbPhone.Location = new System.Drawing.Point(6, 36);
+            this.lbPhone.Location = new System.Drawing.Point(6, 26);
             this.lbPhone.Name = "lbPhone";
             this.lbPhone.Size = new System.Drawing.Size(86, 20);
             this.lbPhone.TabIndex = 0;
@@ -256,7 +260,7 @@
             // 
             this.lbEmail.AutoSize = true;
             this.lbEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbEmail.Location = new System.Drawing.Point(7, 72);
+            this.lbEmail.Location = new System.Drawing.Point(7, 58);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(84, 20);
             this.lbEmail.TabIndex = 2;
@@ -284,6 +288,39 @@
             this.btAddUser.UseVisualStyleBackColor = true;
             this.btAddUser.Click += new System.EventHandler(this.btAddUser_Click);
             // 
+            // gbRole
+            // 
+            this.gbRole.Controls.Add(this.cbRole);
+            this.gbRole.Controls.Add(this.lbRole);
+            this.gbRole.Location = new System.Drawing.Point(16, 260);
+            this.gbRole.Name = "gbRole";
+            this.gbRole.Size = new System.Drawing.Size(339, 50);
+            this.gbRole.TabIndex = 6;
+            this.gbRole.TabStop = false;
+            // 
+            // lbRole
+            // 
+            this.lbRole.AutoSize = true;
+            this.lbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbRole.Location = new System.Drawing.Point(9, 16);
+            this.lbRole.Name = "lbRole";
+            this.lbRole.Size = new System.Drawing.Size(51, 20);
+            this.lbRole.TabIndex = 5;
+            this.lbRole.Text = "Роль";
+            // 
+            // cbRole
+            // 
+            this.cbRole.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cbRole.FormattingEnabled = true;
+            this.cbRole.Items.AddRange(new object[] {
+            "User",
+            "Admin"});
+            this.cbRole.Location = new System.Drawing.Point(117, 13);
+            this.cbRole.Name = "cbRole";
+            this.cbRole.Size = new System.Drawing.Size(213, 28);
+            this.cbRole.TabIndex = 6;
+            this.cbRole.Text = "User";
+            // 
             // fmUserAddForm
             // 
             this.AcceptButton = this.btAddUser;
@@ -291,6 +328,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btCancel;
             this.ClientSize = new System.Drawing.Size(584, 361);
+            this.Controls.Add(this.gbRole);
             this.Controls.Add(this.btAddUser);
             this.Controls.Add(this.btCancel);
             this.Controls.Add(this.gbData);
@@ -312,6 +350,8 @@
             this.gbPIB.PerformLayout();
             this.gbData.ResumeLayout(false);
             this.gbData.PerformLayout();
+            this.gbRole.ResumeLayout(false);
+            this.gbRole.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -339,5 +379,8 @@
         private System.Windows.Forms.Label lbEmail;
         private System.Windows.Forms.Button btCancel;
         private System.Windows.Forms.Button btAddUser;
+        private System.Windows.Forms.GroupBox gbRole;
+        private System.Windows.Forms.ComboBox cbRole;
+        private System.Windows.Forms.Label lbRole;
     }
 }
