@@ -100,6 +100,7 @@
             // 
             this.ColumnPhone.HeaderText = "Телефон";
             this.ColumnPhone.Name = "ColumnPhone";
+            this.ColumnPhone.Width = 120;
             // 
             // ColumnRole
             // 
