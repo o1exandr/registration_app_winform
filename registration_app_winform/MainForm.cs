@@ -55,23 +55,10 @@ namespace registration_app_winform
                 using (SqlConnection con = new SqlConnection(conToDb))
                 {
                     con.Open();
-                    
-                    /*
-                    string query = "select tblUsers.Id, tblUsers.Email, tblUsers.Role, tblUserProfile.Id " +
-                        "FROM tblUsers LEFT JOIN " +
-                        "tblUserProfile ON tblUsers.Id = tblUserProfile.Id";
-                      */  
-                        /*
-                    string query = "select tblUsers.Id, tblUsers.Email, tblUsers.Role, tblUserProfile.LastName, tblUserProfile.Firstname, tblUserProfile.Secondname, " +
-                    "tblUserProfile.DateBirth, tblUserProfile.Phone, tblUserProfile.Sex " +
-                    "FROM tblUsers, tblUserProfile.";
-                    */
-                    /*
-                    SELECT OrderSet.OrderID, OrderSet.Date, OrderSet.ClientsClientsID, OrderSet.Status, OrderSet.Service, ClientsSet.FIO
-                    FROM            OrderSet INNER JOIN
-                                      ClientsSet ON OrderSet.ClientsClientsID = ClientsSet.ClientsID
-                                      */
-                    string query = "select * from tblUserProfile, tblUsers";
+
+                    string query = "SELECT * FROM tblUsers, tblUserProfile "
+                                 + "WHERE tblUsers.Id = tblUserProfile.Id ";
+
                     SqlCommand sqlCommand = new SqlCommand();
                     sqlCommand.Connection = con;
                     sqlCommand.CommandText = query;
