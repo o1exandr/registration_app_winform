@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Transactions;
@@ -21,6 +14,7 @@ namespace registration_app_winform
             InitializeComponent();
         }
 
+        // дату з календаря заганяємо в текстове поле
         private void mcBirthDate_DateChanged(object sender, DateRangeEventArgs e)
         {
             var date = mcBirthDate.SelectionStart;
@@ -45,6 +39,7 @@ namespace registration_app_winform
             {
                 using (TransactionScope scope = new TransactionScope())
                 {
+                    // зашифровуємо введений пароль
                     string strCon = @"Data Source=dell7020\sqlexpress;Initial Catalog=GridUserForm;Integrated Security=True";
                     ICryptoService cryptoService = new PBKDF2();
                     //New User
@@ -58,9 +53,10 @@ namespace registration_app_winform
 
                     using (SqlConnection con = new SqlConnection(strCon))
                     {
+                        // додаємо дані в таблицю tblUsers
                         con.Open();
                         SqlCommand command = new SqlCommand();
-                        command.Connection = con;
+                        command.Connection = con; 
                         var query = $"INSERT INTO [dbo].[tblUsers] ([Email],[Password],[PasswordSalt],[Role],[IsActive]) VALUES('{user.Email}','{hashedPassword}','{salt}', '{user.Role}', 1)";
                         command.CommandText = query;
                         int userId = 0;
@@ -78,11 +74,12 @@ namespace registration_app_winform
                             reader.Close();
                         }
                         else { throw new Exception("Проблема при добавлені користувача"); }
+
+                        // додаємо дані в таблицю tblUserProfile
                         string dateBirth = DateTime.ParseExact(user.DateBirth, "dd.MM.yyyy", null).ToString("yyyy-MM-dd");
                         query = "SET IDENTITY_INSERT tblUserProfile ON " // видавало помилку про те що SET IDENTITY_INSERT tblUserProfile OFF, змушений був додати цей код, що він робить не розумію
-                            + "INSERT INTO [dbo].[tblUserProfile] ([Id],[Lastname],[Firstname],[Secondname],[DateBirth],[Phone],[Sex],[Image]) " +
-                            $"VALUES({userId}, '{user.Lastname}', '{user.Name}', '{user.Secondname}', '{dateBirth}', '{user.Phone}', '{user.Sex}', NULL)"
-                            //$"VALUES({userId}, 'Юзеренко', 'Юзер', 'Юзерович', '{dateBirth}', '+38067 ХХХ ХХ ХХ', '1', NULL)"
+                            + "INSERT INTO [dbo].[tblUserProfile] ([Id],[Lastname],[Firstname],[Secondname],[DateBirth],[Phone],[Sex],[Image]) " 
+                            + $"VALUES({userId}, '{user.Lastname}', '{user.Name}', '{user.Secondname}', '{dateBirth}', '{user.Phone}', '{user.Sex}', NULL)"
                             + " SET IDENTITY_INSERT tblUserProfile OFF";
                         command.CommandText = query;
                         command.ExecuteNonQuery();

@@ -1,14 +1,7 @@
 ﻿using registration_app_winform.Model;
 using SimpleCrypto;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace registration_app_winform
@@ -24,8 +17,6 @@ namespace registration_app_winform
 
         private void fmUserForm_Load(object sender, EventArgs e)
         {
-            //btCancel.Text = Convert.ToString(id);
-            
             try
             {
                 string conToDb = @"Data Source=dell7020\sqlexpress;Initial Catalog=GridUserForm;Integrated Security=True";
@@ -33,6 +24,7 @@ namespace registration_app_winform
                 {
                     con.Open();
 
+                    // запит на конкретного користувача за Id (того користувача який залогінюється)
                     string query = "SELECT * FROM tblUsers, tblUserProfile "
                                  + $"WHERE tblUserProfile.Id = {id}";
 
@@ -44,7 +36,7 @@ namespace registration_app_winform
                     {
                         TimeSpan span = DateTime.Now - Convert.ToDateTime(reader["DateBirth"]);
                         var user = new UserItemModel
-                        {
+                        { // читаємо усю його інфу
                             Id = int.Parse(reader["Id"].ToString()),
                             FullName = reader["Lastname"].ToString() + " " + reader["Firstname"].ToString() + " " + reader["Secondname"].ToString(),
                             Email = reader["Email"].ToString(),
@@ -55,6 +47,7 @@ namespace registration_app_winform
                             IsActive = Convert.ToBoolean(reader["IsActive"]) 
                         };
 
+                        // і розкидаємо по відповідним лейблам
                         lbFullNameInfo.Text = user.FullName;
                         lbEmailInfo.Text = user.Email;
                         lbBirthInfo.Text = Convert.ToDateTime(reader["DateBirth"]).ToString("dd.MM.yyyy") + " (" + user.Age.ToString() + " років)";
@@ -83,6 +76,7 @@ namespace registration_app_winform
             this.Close();
         }
 
+        // опція відобьражати/приховувати пароль
         private void chShowPass_CheckedChanged(object sender, EventArgs e)
         {
             if (chShowPass.Checked)
@@ -91,6 +85,7 @@ namespace registration_app_winform
                 txtNewPass.PasswordChar = '*';
         }
 
+        // оновлюємо пароль користувача
         private void btChangePass_Click(object sender, EventArgs e)
         {
             if (txtNewPass.Text == "")

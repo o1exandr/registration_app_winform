@@ -1,20 +1,12 @@
 ﻿using SimpleCrypto;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace registration_app_winform
 {
     public partial class fmLoginForm : Form
     {
-        private int _id;
         private string _login;
         private string _hashedPassword;
         private string _salt;
@@ -57,11 +49,12 @@ namespace registration_app_winform
                             _salt = reader["PasswordSalt"].ToString();
                             _role = reader["Role"].ToString();
                             _active = Convert.ToBoolean(reader["IsActive"].ToString());
+                            
                             break;
                         }
                     }
-                    reader.Close();
 
+                    reader.Close();
                 }
             }
             catch (Exception ex)
@@ -73,11 +66,11 @@ namespace registration_app_winform
             // Шукаємо користувача по даному логіну в БД
             if (strLogin == _login)
             {
-                ICryptoService cryptoService = new PBKDF2();
-                //validate user
-                //compare the password (this should be true since we are rehashing the same password and using the same generated salt)
+                // зашифровуємо отриманий пароль
+                ICryptoService cryptoService = new PBKDF2();                
                 string hashedPassword2 = cryptoService.Compute(strPassword, _salt);
 
+                // перевіряємо із зашифрованим з бази, якщо спіпадає перевіряємо ролі і статус користувача
                 if (_hashedPassword == hashedPassword2)
                 {
                     //MessageBox.Show("Вхід успішний");
@@ -112,6 +105,7 @@ namespace registration_app_winform
             {
                 MessageBox.Show("Не валідні дані");
             }
+            
         }
 
         private void btCancel_Click(object sender, EventArgs e)

@@ -64,7 +64,6 @@
             this.txtLogin.Name = "txtLogin";
             this.txtLogin.Size = new System.Drawing.Size(250, 26);
             this.txtLogin.TabIndex = 2;
-            this.txtLogin.Text = "mail@mail.com";
             // 
             // txtPassword
             // 
@@ -74,7 +73,6 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(250, 26);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.Text = "123456";
             // 
             // btEnter
             // 

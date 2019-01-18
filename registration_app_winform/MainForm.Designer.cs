@@ -37,8 +37,8 @@
             this.ColumnRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtFindUesr = new System.Windows.Forms.TextBox();
             this.btAddUser = new System.Windows.Forms.Button();
+            this.btChange = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,9 +56,9 @@
             this.ColumnRole,
             this.ColumnAge,
             this.ColumnSex});
-            this.dvgUsers.Location = new System.Drawing.Point(13, 116);
+            this.dvgUsers.Location = new System.Drawing.Point(13, 48);
             this.dvgUsers.Name = "dvgUsers";
-            this.dvgUsers.Size = new System.Drawing.Size(825, 364);
+            this.dvgUsers.Size = new System.Drawing.Size(825, 432);
             this.dvgUsers.TabIndex = 0;
             // 
             // ColumnId
@@ -103,16 +103,9 @@
             this.ColumnSex.Name = "ColumnSex";
             this.ColumnSex.Width = 75;
             // 
-            // txtFindUesr
-            // 
-            this.txtFindUesr.Location = new System.Drawing.Point(13, 40);
-            this.txtFindUesr.Name = "txtFindUesr";
-            this.txtFindUesr.Size = new System.Drawing.Size(559, 20);
-            this.txtFindUesr.TabIndex = 1;
-            // 
             // btAddUser
             // 
-            this.btAddUser.Location = new System.Drawing.Point(13, 80);
+            this.btAddUser.Location = new System.Drawing.Point(13, 10);
             this.btAddUser.Name = "btAddUser";
             this.btAddUser.Size = new System.Drawing.Size(161, 23);
             this.btAddUser.TabIndex = 2;
@@ -120,13 +113,24 @@
             this.btAddUser.UseVisualStyleBackColor = true;
             this.btAddUser.Click += new System.EventHandler(this.btAddUser_Click);
             // 
+            // btChange
+            // 
+            this.btChange.Enabled = false;
+            this.btChange.Location = new System.Drawing.Point(192, 10);
+            this.btChange.Name = "btChange";
+            this.btChange.Size = new System.Drawing.Size(176, 23);
+            this.btChange.TabIndex = 3;
+            this.btChange.Text = "Змінити статус користувача";
+            this.btChange.UseVisualStyleBackColor = true;
+            this.btChange.Click += new System.EventHandler(this.btChange_Click);
+            // 
             // fmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(850, 492);
+            this.Controls.Add(this.btChange);
             this.Controls.Add(this.btAddUser);
-            this.Controls.Add(this.txtFindUesr);
             this.Controls.Add(this.dvgUsers);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(600, 500);
@@ -137,14 +141,12 @@
             this.Load += new System.EventHandler(this.fmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvgUsers)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dvgUsers;
-        private System.Windows.Forms.TextBox txtFindUesr;
         private System.Windows.Forms.Button btAddUser;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFullName;
@@ -153,6 +155,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRole;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAge;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSex;
+        private System.Windows.Forms.Button btChange;
     }
 }
 

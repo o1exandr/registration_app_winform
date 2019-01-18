@@ -1,13 +1,6 @@
 ﻿using registration_app_winform.Model;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace registration_app_winform
@@ -25,6 +18,7 @@ namespace registration_app_winform
             UserAddForm.ShowDialog();
         }
 
+        // зчитуємо усіх користувачів і заливає у грід
         private void fmMain_Load(object sender, EventArgs e)
         {
             try
@@ -63,9 +57,9 @@ namespace registration_app_winform
                         };
                         
                         dvgUsers.Rows.Add(row);
-                        reader.Close();
+                        
                     }
-
+                    reader.Close();
                 }
             }
             catch (Exception ex)
@@ -78,6 +72,11 @@ namespace registration_app_winform
         {
             // закриваємо аплікацію з усіма формами
             Application.Exit();
+        }
+
+        private void btChange_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
