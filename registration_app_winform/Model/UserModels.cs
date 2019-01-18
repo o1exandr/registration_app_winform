@@ -14,6 +14,7 @@ namespace registration_app_winform.Model
         public string Role { get; set; }
         public string Phone { get; set; }
         public bool Sex { get; set; }
+        public bool IsActive { get; set; }
         public int Age { get; set; }
     }
     public class UserAddModel

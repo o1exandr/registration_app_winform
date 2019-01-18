@@ -30,8 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fmMain));
             this.dvgUsers = new System.Windows.Forms.DataGridView();
-            this.txtFindUesr = new System.Windows.Forms.TextBox();
-            this.btAddUser = new System.Windows.Forms.Button();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,6 +37,8 @@
             this.ColumnRole = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtFindUesr = new System.Windows.Forms.TextBox();
+            this.btAddUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dvgUsers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,23 +60,6 @@
             this.dvgUsers.Name = "dvgUsers";
             this.dvgUsers.Size = new System.Drawing.Size(825, 364);
             this.dvgUsers.TabIndex = 0;
-            // 
-            // txtFindUesr
-            // 
-            this.txtFindUesr.Location = new System.Drawing.Point(13, 40);
-            this.txtFindUesr.Name = "txtFindUesr";
-            this.txtFindUesr.Size = new System.Drawing.Size(559, 20);
-            this.txtFindUesr.TabIndex = 1;
-            // 
-            // btAddUser
-            // 
-            this.btAddUser.Location = new System.Drawing.Point(13, 80);
-            this.btAddUser.Name = "btAddUser";
-            this.btAddUser.Size = new System.Drawing.Size(161, 23);
-            this.btAddUser.TabIndex = 2;
-            this.btAddUser.Text = "Додати користувача";
-            this.btAddUser.UseVisualStyleBackColor = true;
-            this.btAddUser.Click += new System.EventHandler(this.btAddUser_Click);
             // 
             // ColumnId
             // 
@@ -120,6 +103,23 @@
             this.ColumnSex.Name = "ColumnSex";
             this.ColumnSex.Width = 75;
             // 
+            // txtFindUesr
+            // 
+            this.txtFindUesr.Location = new System.Drawing.Point(13, 40);
+            this.txtFindUesr.Name = "txtFindUesr";
+            this.txtFindUesr.Size = new System.Drawing.Size(559, 20);
+            this.txtFindUesr.TabIndex = 1;
+            // 
+            // btAddUser
+            // 
+            this.btAddUser.Location = new System.Drawing.Point(13, 80);
+            this.btAddUser.Name = "btAddUser";
+            this.btAddUser.Size = new System.Drawing.Size(161, 23);
+            this.btAddUser.TabIndex = 2;
+            this.btAddUser.Text = "Додати користувача";
+            this.btAddUser.UseVisualStyleBackColor = true;
+            this.btAddUser.Click += new System.EventHandler(this.btAddUser_Click);
+            // 
             // fmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -133,6 +133,7 @@
             this.Name = "fmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Форма для роботи з даними користувачів";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fmMain_FormClosed);
             this.Load += new System.EventHandler(this.fmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dvgUsers)).EndInit();
             this.ResumeLayout(false);

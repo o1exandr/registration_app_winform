@@ -27,26 +27,6 @@ namespace registration_app_winform
 
         private void fmMain_Load(object sender, EventArgs e)
         {
-            /*
-            var user = new UserItemModel
-            {
-                Id = 1,
-                FullName = "Сидор Славік Сидорович",
-                Email = "ss@ss.ss",
-                Role = "Admin",
-                Age = 12,
-                Phone = "+3809734128745",
-                Sex = true
-            };
-            string sex = user.Sex == true ? "чоловіча" : "жіноча";
-            object[] row =
-            {
-                user.Id, user.FullName, user.Email, user.Phone, user.Role, user.Age, sex
-            };
-            
-            dvgUsers.Rows.Add(row);
-            */
-
             try
             {
 
@@ -83,6 +63,7 @@ namespace registration_app_winform
                         };
                         
                         dvgUsers.Rows.Add(row);
+                        reader.Close();
                     }
 
                 }
@@ -91,6 +72,12 @@ namespace registration_app_winform
             {
                 MessageBox.Show($"Помилка завантаження даних\n\t{ex.Message}", ex.Message);
             }
+        }
+
+        private void fmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // закриваємо аплікацію з усіма формами
+            Application.Exit();
         }
     }
 }
